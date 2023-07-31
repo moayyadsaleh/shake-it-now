@@ -18,7 +18,7 @@ const API_URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 // Update the GET route to return an array of cocktails
 // Update the GET route to return a random cocktail
 // Update the GET route to return a random cocktail
-app.get("/cocktails", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const cocktailName = req.query.name; // Get the cocktail name from the query parameter
     if (!cocktailName) {
