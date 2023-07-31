@@ -1,35 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ShakeItNow</title>
-        <link rel="stylesheet" href="/styles.css">
-      </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShakeItNow</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
   <div class="container">
     <h1>Find the cocktail recipe you like!</h1>
 
     <!-- Form for searching by cocktail name or first letter -->
     <section>
-            <form action="/" method="post">
-      <label for="searchInput">Search by Cocktail Name or First Letter:</label>
-      <input type="text" id="searchInput" name="searchQuery" required>
-      <button type="submit">Search</button>
-    </form>
-        <form action="/" method="post">
-      <button type="submit">Get Random Cocktail</button>
-    </form>
+      <form action="/" method="post">
+        <label for="searchInput">Search by Cocktail Name or First Letter:</label>
+        <input type="text" id="searchInput" name="searchQuery" required placeholder="Get Yummy Recipes!">
+        <button type="submit" title="Click to search">Search</button>
+      </form>
     </section>
 
-
-    <!-- Button for getting a random cocktail -->
-
-
-    <!-- Display the results here (e.g., cocktail details) -->
-    <div id="results">
-      <!-- Results will be dynamically added here using JavaScript -->
+    <!-- Add cocktail image here -->
+    <img src="https://images.unsplash.com/photo-1626169278883-03a6e71e381d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80" alt="Cocktail Image">
+    <div class="container">  
+  <% if (Array.isArray(data) && data.length > 0) { %>
+    <% data.forEach(cocktail => { %>
+      <h2><%= cocktail.strDrink %></h2>
+      <h3>Category: <%= cocktail.strCategory %></h3>
+      <h3>Alcoholic: <%= cocktail.strAlcoholic %></h3>
+      <h3>Glass: <%= cocktail.strGlass %></h3>
+      <h3>Ingredients:</h3>
+      <ul>
+        <% // Loop through each ingredient and measurement
+           // The ingredients start from "strIngredient1" up to "strIngredient15"
+           // The corresponding measurements are "strMeasure1" up to "strMeasure15"
+           for (let i = 1; i <= 15; i++) {
+             const ingredient = cocktail[`strIngredient${i}`];
+             const measurement = cocktail[`strMeasure${i}`];
+             // Check if the ingredient exists and is not an empty string
+             if (ingredient && ingredient.trim() !== '') { %>
+               <li><%= measurement %> <%= ingredient %></li>
+             <% }
+           }
+        %>
+      </ul>
+      <p><strong>Instructions:</strong> <%= cocktail.strInstructions %></p>
+      <hr>
+    <% }) %>
+  <% } else if (error) { %>
+    <div id="tag-error" class="tag-error">
+      <%= error %>
     </div>
-  </div>
+  <% } else { %>
+    <div id="tag-error" class="tag-error">
+      No cocktail found. Please try again later.
+    </div>
+  <% } %>
+</div>
 </body>
 </html>
