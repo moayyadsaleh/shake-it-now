@@ -84,6 +84,7 @@ app.post("/", async (req, res) => {
 
 
 // Start the server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(process.env.PORT ||port, () => {
+  console.log(`App listening on port ${port}`);
+  console.log(`App listening on port ${process.env.PORT}`);
 });

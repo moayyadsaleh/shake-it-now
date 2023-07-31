@@ -105,7 +105,7 @@ ul {
 
 @media screen and (max-width: 767px) {
   html, body {
-    height: 220%; /* Set a different height for phone devices */
+    height: 230%; /* Set a different height for phone devices */
     /* You can also adjust other styles here if needed */
   }
 }
