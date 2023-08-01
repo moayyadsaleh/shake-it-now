@@ -15,7 +15,7 @@ To enhance readability and style, I integrated attractive font styles from Googl
 Version control played a crucial role in my development process. I used Git to organize my codebase efficiently, enabling collaborative development and ensuring easy code management.
 
 
-
+Live demo: https://shakeitnow-9a83bc5ee7b3.herokuapp.com/
 
 ![Screenshot 2023-07-31 201656](https://github.com/moayyadsaleh/shake-it-now/assets/137034202/9fe509b0-9ef6-479a-bd4b-04f7c2704124)
 
