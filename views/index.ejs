@@ -11,7 +11,7 @@
 
     <!-- Form for searching by cocktail name or first letter -->
     <section>
-      <form action="/" method="post">
+      <form action="/" method="POST">
         <label for="searchInput">Search by Cocktail Name or First Letter:</label>
         <input type="text" id="searchInput" name="searchQuery" required placeholder="Get Yummy Recipes!">
         <button type="submit" title="Click to search">Search</button>
@@ -21,7 +21,7 @@
     <!-- Add cocktail image here -->
     <img src="https://images.unsplash.com/photo-1626169278883-03a6e71e381d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80" alt="Cocktail Image">
     <div class="container">  
-  <% if (Array.isArray(data) && data.length > 0) { %>
+  <% if (locals.data) { %>
     <% data.forEach(cocktail => { %>
       <h2><%= cocktail.strDrink %></h2>
       <h3>Category: <%= cocktail.strCategory %></h3>
